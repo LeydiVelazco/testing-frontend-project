@@ -1,0 +1,234 @@
+.fondo{
+    height: 80vh;
+    background: url('https://novedadesgt.files.wordpress.com/2019/04/telmed2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gris{
+    background: rgba(0, 0, 0, 0) !important;
+    box-shadow: none;
+
+    .items li a{
+        color: black !important;
+        font-weight: 400;
+    }
+}
+
+.top-nav-collapse{
+    background: white !important;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 #70412B;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.navbar-brand{
+    color: black !important;
+}
+
+.hero{
+    //display: table;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    background: rgba(0,0,0,0.10);
+    position: relative;
+    overflow: hidden;
+    min-height: 85vh;
+
+    .text_banner{
+        padding-top: 230px;
+    }
+    
+    input{
+        width: 450px;
+    }
+}
+
+.video-bg{
+    opacity: 0.7;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#carrusel{
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        padding: 50px;
+      }
+
+      .swiper-slide {
+
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 220px;
+      }
+
+    .example-card {
+        max-width: 450px;
+        height: 200px;
+        margin-left: 45px;
+        //color:rgb(255, 255, 255);
+        border-radius: 0 0 0 0;
+      }
+
+    .example-header-image1 {
+    background-image: url('https://www.contrareplica.mx/uploads/galerias/normal/d51adde6198cd2e5a32ddda82d2ee9b6.jpg');
+    background-size: cover;
+    }
+
+    .example-header-image2 {
+        background-image: url('https://www.trecebits.com/wp-content/uploads/2019/02/Persona-1-445x445.jpg');
+        background-size: cover;
+        }
+
+    .example-header-image3 {
+        background-image: url('https://tecnofanatico.com/wp-content/uploads/2019/02/thispersondoesnotexist.com_.jpeg');
+        background-size: cover;
+        }
+   
+}
+
+#caracteristicas{
+    background-color: rgb(247, 247, 247);
+    padding-bottom: 20px;
+    p{
+        font-weight: lighter;
+        color: gray;
+        line-height: 30px;
+    }
+
+    h1{
+        margin-bottom: 20px;
+    }
+}
+
+#contact_us{
+    h1{
+       font-weight: 500;
+       font-size: 50px;
+    }
+
+    p{
+        font-size: 18px;
+        font-weight: lighter;
+        line-height: 30px;
+    }
+
+}
+
+#seccionFondo{
+    background-image: url('/assets/logo/sectionFondo2.jpg');
+    background-size: cover;
+    height: 40vh;
+
+    h1{
+        font-weight: 500;
+        font-size: 50px;
+     }
+
+    p{
+        font-size: 18px;
+        font-weight: lighter;
+        line-height: 30px;
+    }
+
+    .form-row .imagen{
+        border-radius: 10px 0 0 10px;
+        padding-bottom: 0px;
+    }
+
+    .form-row .imagen img{
+        max-width: 80px;
+        margin-left: 8px;
+        margin-top: 10px;
+    }
+
+    .form-row .prueba {
+        border-radius: 0 10px 10px 0;
+    }
+
+    .form-row .prueba p{
+        font-weight: 500;
+        font-size: 28px;
+        padding-top: 15px;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+#funcionalidades{
+    margin-bottom: 40px;;
+    h1{
+        font-weight: 500;
+        font-size: 50px;
+    }
+}
+
+#planes{
+    background-image: url('/assets/logo/planes.png');
+    background-size: cover;
+    height: 75vh;
+
+    h1{
+        font-weight: 500;
+        font-size: 50px;
+        color: white;
+    }
+
+    h3{
+        font-weight: 500;
+        color: white;
+        text-align: center;
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
+
+    p{
+        font-size: 20px;
+        font-weight: lighter;
+        line-height: 30px;
+        color: white;
+    }
+
+    ul li{
+        color: white;
+        font-weight: lighter;
+    }
+
+    .plan{
+        background-color: rgba(214, 214, 214, 0.13);
+        border-radius: 10px;
+        border: 1px solid white;
+    }
+
+}
+
+#nosotros{
+    background: rgb(0, 0, 0);
+    color: white;
+
+    .mat-expansion-panel{
+        background-color: #3d3d3d;
+    }
+
+    ::ng-deep .specific-class > .mat-expansion-indicator:after {
+        color: white;
+    }
+
+    p{
+        color: white;
+        font-family: 'Gilroy', sans-serif;
+    }
+
+    input{
+        width: 450px;
+    }
+}

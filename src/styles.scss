@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background: #f60d4f00;
+} 
+
+.mat-tab-body.mat-tab-body-active {
+    animation: fadeIn 0.5s;
+  }
+  
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .custom-dialog-container .mat-dialog-container {
+    margin-top: -20px;   
+    padding-top: 0px;
+    padding-left: 0px; 
+    padding-bottom: 0px;
+}
+
+.custom-video-dialog-container .mat-dialog-container {
+    padding-right: 0px;   
+    padding-top: 0px;
+    padding-left: 0px;
+}

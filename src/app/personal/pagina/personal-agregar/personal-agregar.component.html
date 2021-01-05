@@ -1,0 +1,121 @@
+<div class="container animated fadeIn" style="margin-top: 150px;">
+    <div>
+        <h1>Registro de Personal</h1>
+    </div>
+    <div class="form-row pt-4" >
+        <div class="col-sm-7" style="background-color: rgba(255, 255, 255, 0.671);border-radius: 10px;border: 1px solid;">
+            <form style="padding: 20px;">
+                <div class="form-row" >
+                    <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Número de documento de identidad</mat-label>
+                        <input matInput [(ngModel)]="personal.dni" maxlength="8" [formControl]="dniFormControl" autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressNumbers($event)" required>
+                        <mat-error *ngIf="dniFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                        <mat-error *ngIf="dniFormControl.hasError('minlength')">
+                            La cantidad de digitos debe ser <strong>8</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" >
+                    <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Apellido Paterno</mat-label>
+                        <input matInput [(ngModel)]="personal.apellidoPat" [formControl]="apellidoPatFormControl" autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressLetters($event)" required>
+                        <mat-error *ngIf="apellidoPatFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Apellido Materno</mat-label>
+                        <input matInput [(ngModel)]="personal.apellidoMat" [formControl]="apellidoMatFormControl" autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressLetters($event)" required>
+                        <mat-error *ngIf="apellidoMatFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" >
+                    <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Nombres</mat-label>
+                        <input matInput [(ngModel)]="personal.nombre" [formControl]="nombresFormControl"  autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressLetters($event)" required>
+                        <mat-error *ngIf="nombresFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" >
+                    <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Fecha de nacimiento</mat-label>
+                        <input matInput [(ngModel)]="nacimiento" max="2999-12-31" [formControl]="fechaNacimientoFormControl" autocomplete="off" type="date" style="color: black !important;" required>
+                        <mat-error *ngIf="fechaNacimientoFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Teléfono celular</mat-label>
+                        <input matInput [(ngModel)]="personal.celular" maxlength="9" [formControl]="celularFormControl" autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressNumbers($event)" required>
+                        <mat-error *ngIf="celularFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                        <mat-error *ngIf="celularFormControl.hasError('minlength')">
+                            La cantidad de digitos debe ser <strong>9</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" >
+                    <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Correo electrónico</mat-label>
+                        <input matInput [(ngModel)]="personal.email" [formControl]="emailFormControl" autocomplete="off" type="text" style="color: black !important;" required>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Por favor ingresa una <strong>dirección de correo válida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" >
+                    <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput [(ngModel)]="personal.direccion" [formControl]="direccionFormControl" autocomplete="off" type="text" style="color: black !important;" required>
+                        <mat-error *ngIf="direccionFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" >
+                    <mat-form-field class="col-md-6"  appearance="outline">
+                        <mat-label>Cargo</mat-label> 
+                        <mat-select [(ngModel)]="personal.cargo" [formControl]="cargoFormControl" required>
+                            <mat-option value="M">Médico</mat-option>
+                            <mat-option value="E">Enfermero</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="cargoFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-md-6"  appearance="outline">
+                        <mat-label>Género</mat-label> 
+                        <mat-select [(ngModel)]="personal.genero" [formControl]="generoFormControl" required>
+                            <mat-option value="M">Masculino</mat-option>
+                            <mat-option value="F">Femenino</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="generoFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>          
+                </div>
+                <!-- Div de botones para regresar o guardar los datos de los campos -->
+                <div class="form-row pt-2">
+                    <div class="col-sm-12 text-right">     
+                        <button mat-raised-button color="accent" style="margin-bottom: 15px;margin-right: 8px;" (click)="regresar()">Regresar</button>   
+                        <button *ngIf="guardarButton" mat-raised-button style="margin-bottom: 15px;background-color: #70412B;color: white;" (click)="guardarPersonal()">Guardar</button> 
+                        <button *ngIf="actualizarButton" mat-raised-button style="margin-left: 5px;margin-bottom: 15px;background-color: #70412B;color: white;" (click)="actualizarPersonal()">Actualizar</button>
+                    </div>
+                </div>
+            </form> 
+        </div>
+        <div class="col-sm-5">
+            <img src="assets/logo/personal.png" style="max-width: 120%;">
+        </div>
+    </div>
+</div>

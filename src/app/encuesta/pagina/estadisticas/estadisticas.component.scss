@@ -1,0 +1,28 @@
+@media only screen and (max-width: 600px) {
+
+    .user-contenedor-table{
+      width: 100%;
+      overflow: auto;
+    }
+    .user-table {
+      width: 850px;
+    }
+  }
+  
+  .mat-header-cell{
+    background-color: #70412B;
+    color: white;
+  }
+  
+  .mat-table{
+    box-shadow: none;
+  }
+  
+  .tabla{
+    border: 1px solid rgb(233, 224, 224);
+  }
+  
+
+.mat-form-field{
+  font-size: 12px;
+}

@@ -1,0 +1,50 @@
+<mat-dialog-content>
+    <div class="form-row col-md-12" style="padding: 0px 0px 0px 0px;margin: auto;justify-content: center;">   
+        <div class="imageLogin col-md-6" style="width:600px;height:580px;text-align:center;overflow:hidden;">
+            <img src="http://content.itlandapps.com/adrenalin/contactus.JPG" style=" min-width:100px;height:580px;margin-left: -5%;">
+        </div>
+        <div class="registroLogin col-md-6" style="text-align: center;padding-left: 20px;">
+            <div class="form-row" style="margin: auto;justify-content: center;">
+                <div class="col-md-12" style="text-align: end;">
+                    <span mat-dialog-close class="material-icons" style="font-size: 28px;font-weight: bold;margin-top: 10px;">close</span>
+                </div>
+            </div>
+            <div class="animated fadeIn">
+                <img class="logo1 pt-6" src="assets/logo/adrenalinLogo2.png" alt="" style="max-width: 80%;">
+                <p style="font-weight: lighter;font-size: 24px;text-align: center;margin-bottom: 20px;">La Salud es primero</p>
+                <p class="ingresar" style="font-weight: bold;">¡Contáctenos!</p>
+                    <form>
+                        <div class="form-row" style="margin: auto;justify-content: center;">
+                            <mat-form-field class="col-md-12" appearance="outline">                     
+                                <mat-label>Correo Eléctronico</mat-label>
+                                <input matInput [(ngModel)]="correoClient" [formControl]="emailFormControl" autocomplete="off" type="text">                    
+                                <mat-icon matSuffix>email</mat-icon>
+                                <mat-error *ngIf="emailFormControl.hasError('required')">
+                                    Este campo es <strong>requerido</strong>
+                                </mat-error>
+                                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                    Por favor ingresa una <strong>dirección de correo válida</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-row" style="margin: auto;justify-content: center;">
+                            <mat-form-field class="col-md-12" appearance="outline">
+                                <mat-label>Mensaje</mat-label>
+                                <textarea matInput [(ngModel)]="mensaje" [formControl]="mensajeFormControl" style="height: 100px;"></textarea>
+                                <mat-error *ngIf="mensajeFormControl.hasError('required')">
+                                    Este campo es <strong>requerido</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="loginbox form-row" style="margin: auto;justify-content: center;">
+                            <div class="col-md-11" style="text-align: center;padding-top: 10px">
+                                <button mat-flat-button class="login" style="width: 100%;background-color: #70412B;color: white;border-radius: 2px;
+                                padding-top: 10px;padding-bottom: 10px;font-size: 16px;" (click)="contactanos()">Enviar solicitud</button>
+                            </div>
+                        </div>
+                    </form>                                    
+            </div>                 
+        </div>
+    </div>
+</mat-dialog-content>
+

@@ -1,0 +1,105 @@
+<div class="container animated fadeIn" style="margin-top: 100px;">
+    <div>
+        <h1>Agregar consulta</h1>
+    </div>
+    <div class="col-sm-12" style="background-color: rgba(255, 255, 255, 0.671);border-radius: 10px;border: 1px solid;">
+        <div style="padding: 20px;">
+            <div class="form-row" >
+                <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                    <mat-label>Nombre del Doctor</mat-label>
+                    <input matInput [(ngModel)]="nombreCompleto" [formControl]="nombreFormControl" type="text" readonly>
+                    <mat-error *ngIf="nombreFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row" > 
+                <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                    <mat-label>Paciente</mat-label>
+                    <input matInput [(ngModel)]="paciente.nombreCompleto" [formControl]="pacienteFormControl" type="text" readonly>
+                    <mat-error *ngIf="pacienteFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row" > 
+                <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                    <mat-label>Celular</mat-label>
+                    <input matInput [(ngModel)]="paciente.celular" [formControl]="celularFormControl" type="text" readonly>
+                    <mat-error *ngIf="celularFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                      <mat-error *ngIf="celularFormControl.hasError('minlength')">
+                        Este campo es de <strong>9 dígitos</strong>
+                      </mat-error>
+                </mat-form-field>
+                <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                    <mat-label>Grupo Sanguíneo</mat-label>
+                    <input matInput [(ngModel)]="paciente.grupoSanguineo" [formControl]="grupoSangFormControl" type="text" readonly>
+                    <mat-error *ngIf="grupoSangFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row" > 
+                <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                    <mat-label>Correo Electrónico</mat-label>
+                    <input matInput [(ngModel)]="paciente.email" [formControl]="emailFormControl" type="text" readonly>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                      <mat-error *ngIf="emailFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
+                        Porfavor ingresa un <strong>email válido</strong>
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row" > 
+                <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                    <mat-label>Numero de consulta</mat-label>
+                    <input matInput [(ngModel)]="numeroConsulta" [formControl]="numeroConsultaFormControl" type="text" readonly>
+                    <mat-error *ngIf="numeroConsultaFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                      <mat-error *ngIf="numeroConsultaFormControl.hasError('minlength')">
+                        Este campo es de <strong>1 o 2 dígitos</strong>
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row" > 
+                <mat-form-field class="col-md-12" appearance="outline">
+                    <mat-label>Observación</mat-label>
+                    <textarea matInput [(ngModel)]="consulta.comentarios" [formControl]="observacionFormControl" style="height: 100px;"></textarea>
+                    <mat-error *ngIf="observacionFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row" > 
+                <mat-form-field class="col-md-12" appearance="outline">
+                    <mat-label>Recomendaciones</mat-label>
+                    <textarea matInput [(ngModel)]="consulta.recomendaciones" [formControl]="recomendacionFormControl" style="height: 100px;"></textarea>
+                    <mat-error *ngIf="recomendacionFormControl.hasError('required')">
+                        Este campo es <strong>requerido</strong>
+                      </mat-error>
+                </mat-form-field>
+            </div>
+            <div class ="form-row">
+              <mat-form-field class="col-md-6"  appearance="outline">
+                <mat-label>Estado</mat-label>
+                <mat-select [(ngModel)]="consulta.estado">
+                  <mat-option value="-">-</mat-option>
+                  <mat-option value="=">=</mat-option>
+                  <mat-option value="+">+</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="form-row pt-2">
+                <div class="col-sm-12 text-right">
+                    <button mat-raised-button color="accent" style="margin-right: 15px;" (click)="regresar()">Regresar</button>
+                    <button mat-raised-button style="background-color: #70412B;color: white;margin-bottom: 15px;" (click)="guardarConsulta()">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+

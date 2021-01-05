@@ -1,0 +1,158 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav class="listita" style="background-color: white;color:black; " #sidenav mode="side" [(opened)]="opened">
+      <a href="javascript:void(0);" style="text-align: center;">
+          <h5 style="margin-top: 11px;margin-bottom: 10px;font-weight: bolder;"><strong>SEGUIMIENTO DE PACIENTES</strong></h5>
+      </a>
+      <mat-nav-list class="menu" style="background-color: white;">
+          <div class="perfil" style="height: 140px;">
+              <img src="https://www.xtrafondos.com/descargar.php?id=3306&resolucion=2560x1440" alt="img" width="300px" height="150px" style="position: absolute;">
+              <div class="texto-encima">Bienvenido!</div>
+          </div>
+
+        <mat-accordion>
+            <mat-expansion-panel style="box-shadow: none;border-radius: 0 0 0 0;" [expanded]="true">
+                <mat-expansion-panel-header style="margin-left: -23px;background-color:  #70412B;" class="specific-class">
+                    <mat-panel-title style="padding-left: 0px !important;">
+                        <span style="color: white;font-size: 14px;margin-left: 15px;">Módulo mantenimiento</span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a mat-list-item (click)="goto('/plan/listado')" *ngIf=" role_id == 1 || role_id == 2" >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Plan de Enfermedad</span>
+                </a>
+
+                <a mat-list-item (click)="goto('/solicitudes/listado')" *ngIf=" role_id == 1 " >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Solicitudes</span>
+                </a>
+
+                <a mat-list-item (click)="goto('/personal/listado')" *ngIf=" role_id == 2" >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Personal</span>
+                </a>
+
+                <a mat-list-item (click)="goto('/paciente/listado')" *ngIf=" role_id == 2" >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Pacientes</span>
+                </a>
+
+                <a mat-list-item (click)="goto('/correo/enviar-correo')" *ngIf=" role_id == 3" >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Enviar Correos</span>
+                </a>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion *ngIf=" role_id == 2 || role_id == 3">
+            <mat-expansion-panel style="box-shadow: none;border-radius: 0 0 0 0;" [expanded]="true">
+                <mat-expansion-panel-header style="margin-left: -23px;background-color: #70412B;" class="specific-class" >
+                    <mat-panel-title style="padding-left: 0px !important;">
+                        <span style="color: white;font-size: 14px;margin-left: 15px;">Módulo Seguimiento de Pacientes</span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a mat-list-item (click)="goto('/asignacion/listado')" *ngIf=" role_id == 2 " >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Iteración</span>
+                </a>
+
+                <a mat-list-item (click)="goto('/consulta/listado')"  *ngIf=" role_id == 3 ">
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Consultas</span>
+                </a>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <mat-accordion *ngIf=" role_id == 2">
+            <mat-expansion-panel style="box-shadow: none;border-radius: 0 0 0 0;" [expanded]="true">
+                <mat-expansion-panel-header style="margin-left: -23px;background-color: #70412B;" class="specific-class">
+                    <mat-panel-title style="padding-left: 0px !important;" >
+                        <span style="color: white;font-size: 14px;margin-left: 15px;">Módulo Soporte</span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <a mat-list-item (click)="goto('/encuesta/seleccionar-usuario')" >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Encuestas</span>
+                </a>
+
+                <a mat-list-item (click)="goto('/encuesta/estadisticas')" >
+                    <span class="material-icons" style="margin-right: 10px;font-size: 18px;">
+                        check
+                    </span>
+                    <span>Estadísticas de Encuestas</span>
+                </a>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+      </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #70412B;position: absolute;">
+        <mat-toolbar-row class="col-md-12" style="margin-top: 7px;display: flexbox;justify-content: center;">
+            <div class="row col-md-6 justify-content-start">   
+              <div style="margin-bottom: 2px;margin-right: 5px;">
+                  <a href="javascript:void(0);">
+                      <mat-icon style="color: white;font-size: 25px;padding-top: 4px;" (click)="sidenav.toggle()">
+                          menu</mat-icon>
+                  </a>
+              </div>
+              <div style="color: white;">
+                  MENU
+              </div>
+            </div>
+            <div class="row col-md-6 justify-content-end">  
+              <button mat-button [matMenuTriggerFor]="beforeMenu" style="color: white;font-size: 18px;">Hola, {{usuario}}<mat-icon style="margin-bottom: 5px;">more_vert</mat-icon></button>
+                  <mat-menu #beforeMenu="matMenu" xPosition="before">
+                      <div style="background-color: #e8f0fe;margin: 10px;border-radius: 4px;padding: 0 30px;margin-bottom: 20px;margin-top: -4px;">
+                          <p style="font-size: 13px;font-weight: 400;">Esta cuenta la gestiona Adrenalin</p>
+                      </div>  
+                      <div style="padding: 0 8px;margin: 10px;margin-bottom: 20px; ">
+                          <div style="text-align: center;color: white;">
+                              <img src="https://atento.titalab.com/central/assets/images/ico-avatar.png" style="width: 80px;height:80px;border-radius:50%;margin-left: 5px">
+                          </div>
+                      </div> 
+                      <div style="text-align: center;font-size: 16px;margin-bottom: 20px;" >
+                          <p style="margin-bottom: -0.5px;font-weight: 500;">{{name}}</p>
+                          <p style="margin-bottom: -0.5px;">{{email}}</p>
+                          <p style="color: rgb(167, 167, 167);">{{rol}}</p>
+                      </div>
+                      <div *ngIf="role_id == 2" style="text-align: center;margin-bottom: 17px;font-size: 16px;">
+                          <button mat-stroked-button class="logout" style="border-radius: 20px; font-weight: 400;" (click)="editarDatosEmpresa()" >Gestionar Datos de Empresa</button>
+                      </div>     
+                      <mat-divider></mat-divider>
+                      <div style="text-align: center;margin-bottom: 17px;font-size: 16px;">
+                          <button class="logout" mat-stroked-button style="border-radius: 20px; font-weight: 400;margin-top: 17px;" (click)="logout()" >Cerrar sesión</button>
+                      </div>
+                      <mat-divider></mat-divider>  
+                      <div style="text-align: center;margin-top: 17px;">
+                          <p style="font-size: 12px;">Políticas de Privacidad</p>
+                      </div>
+                  </mat-menu>
+            </div>              
+        </mat-toolbar-row>               
+    </mat-toolbar>
+    <router-outlet style="position: relative;"></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

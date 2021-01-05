@@ -1,0 +1,82 @@
+<div class="container animated fadeIn" style="margin-top: 100px;">
+    <div>
+        <h1>Envio Personalizado de Correos Electrónicos</h1>
+    </div>
+    <div>
+        <h3>Lista de Pacientes</h3>
+        <p>Seleccione un Paciente</p>
+    </div>
+    <div class="tabla">
+        <div class="mt-20 user-contenedor-table">
+          <table mat-table matSort [dataSource]="dataSourceTwo" class="mat-elevation-z8 user-table" #TableTwoSort="matSort" style="width: 100%;">
+    
+            <ng-container matColumnDef="dni">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">DNI</th>
+              <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.dni }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="nombre-apellido">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Nombres y Apellidos </th>
+              <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.nombre }} {{ element.apellidoPat }} {{ element.apellidoMat }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="genero">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Genero</th>
+              <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.genero }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="grupoSanguineo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Grupo Sanguéneo</th>
+              <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.grupoSanguineo }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="ocupacion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Ocupación</th>
+              <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.ocupacion }}</td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsTwo"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsTwo" (click)="seleccionarFilaPaciente(row)" [style.background]="pacienteSeleccionado == row ? 'lightblue' : ''"></tr>
+          </table>
+        </div>
+      </div>
+    <mat-paginator #TableTwoPaginator="matPaginator" [pageSize]="4" [pageSizeOptions]="[4, 8, 12, 64]"></mat-paginator>
+
+    <div style="margin-top: 10px;">
+        <h3>Escriba un correo</h3>
+    </div>
+    <div style="background-color: rgba(255, 255, 255, 0.671);border-radius: 10px;border: 1px solid;margin-bottom: 15px;">
+      <form style="padding: 20px;">
+          <div class="form-row">
+            <mat-form-field class="col-sm-12" appearance="outline">
+                <mat-label>Asunto</mat-label>
+                <input [(ngModel)]="correo.asunto" [formControl]="asuntoFormControl" matInput autocomplete="off" type="text">
+                <mat-error *ngIf="asuntoFormControl.hasError('required')">
+                  Este campo es <strong>requerido</strong>
+              </mat-error>
+              <mat-error *ngIf="asuntoFormControl.hasError('maxlength')">
+                La cantidad de caracteres debe ser menor de <strong>70</strong>
+            </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row"> 
+            <mat-form-field class="col-sm-12" appearance="outline">
+                <mat-label>Mensaje</mat-label>
+                <textarea matInput autocomplete="off" [(ngModel)]="correo.mensaje" [formControl]="mensajeFormControl" type="text" style="height: 150px;"></textarea>
+                <mat-error *ngIf="mensajeFormControl.hasError('required')">
+                  Este campo es <strong>requerido</strong>
+              </mat-error>
+              <mat-error *ngIf="mensajeFormControl.hasError('minlength')">
+                La cantidad de caracteres debe ser menor de <strong>3000</strong>
+            </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+              <div class="col-12 text-right">
+                  <button mat-raised-button (click)="enviarCorreo()" style="background-color: #70412B;color: white;margin-left: 5px;">Enviar Correo</button>
+              </div>
+          </div>
+      </form>       
+    </div>
+    
+</div>

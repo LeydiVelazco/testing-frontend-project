@@ -1,0 +1,43 @@
+<mat-dialog-content>
+    <div class="animated fadeIn">
+        <div *ngIf="mensaje" style="text-align: center;">
+            <h4>Este paciente no registra historial hasta el momento.</h4>
+            <mat-hint>Una vez al paciente sea atendido, aqui se mostrará sus historiales.</mat-hint>
+        </div>
+        <div *ngIf="historial">
+            <mat-tab-group [@.disabled]="true">
+                <mat-tab *ngFor="let historial of historiales">
+                <ng-template mat-tab-label >Historial</ng-template>
+                
+                        <p style="font-weight: 500;" class="pt-2">Datos de la Atención</p>
+                        <ul>
+                            <li>Doctor: {{historial.nombre}} {{historial.apellidoPat}} {{historial.apellidoMat}}</li>
+                            <li>Fecha de atención: {{historial.fechaConsulta}}</li>
+                        </ul>
+                        <hr>
+                        <p style="font-weight: 500;">Datos de paciente</p>
+                        <ul>          
+                            <li>DNI: {{historial.dni}}</li>
+                            <li>Fecha de Nacimiento: {{historial.nacimiento}}</li>
+                            <li>Dirección: {{historial.direccion}}</li>
+                            <li>Celular: {{historial.celular}}</li>
+                            <li>Género: {{historial.genero}}</li>
+                        </ul>
+                        <hr>
+                        <p style="font-weight: 500;">Diagnóstico y detalles de la Atención</p>
+                        <ul>
+                            <li>Observaciones: {{historial.comentarios}}</li>
+                            <li>Recomendaciones: {{historial.recomendaciones}}</li>
+                            <li>Estado: {{historial.estado}}</li>
+                        </ul>            
+                </mat-tab>
+            </mat-tab-group>
+        </div>   
+        <div class="col-12 text-right">
+            <button mat-raised-button type="submit" color="primary" href="javascript:void(0);" style="margin-right: -15px;margin-top: 10px;margin-bottom: 10px;" (click)="regresar()">Regresar</button>
+        </div>
+    </div>                   
+</mat-dialog-content>
+
+
+

@@ -1,0 +1,104 @@
+<div class="container animated fadeIn" style="margin-top: 100px;">
+    <div class="container animated fadeIn">
+        <div class="form-row">
+            <h1>Envio de Encuestas</h1>
+        </div>
+        <div>
+            <h4>Listado de Pacientes</h4>
+        </div>
+        <div>
+          <p>Seleccione un item del menú si desea filtrar</p>
+        </div>
+        <div class="form-row">
+            <mat-form-field class="col-sm-3" appearance="outline">
+                <mat-label>Filtros</mat-label>
+                <mat-select [(ngModel)]="filtro_id" (selectionChange)="select($event.value)" required>
+                    <mat-option *ngFor="let filtro of filtros" [value]="filtro.id_filtro">
+                        {{filtro.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="nombre" class="col-sm-4" appearance="outline">
+                <mat-label>Nombre Paciente</mat-label>
+                <input [(ngModel)]="nomPaciente" matInput autocomplete="off" type="text" (keyup)="aplicarFiltro($event.target.value)">
+            </mat-form-field>
+            <mat-form-field *ngIf="dni" class="col-sm-4" appearance="outline">
+                <mat-label>DNI Paciente</mat-label>
+                <input matInput autocomplete="off" type="text" (keyup)="aplicarFiltro($event.target.value)">
+            </mat-form-field>
+            <!-- <mat-form-field *ngIf="email" class="col-sm-4" appearance="outline">
+                <mat-label>Correo Electrónico Paciente</mat-label>
+                <input matInput autocomplete="off" type="text" (keyup)="aplicarFiltro($event.target.value)">
+            </mat-form-field> -->
+            <mat-form-field *ngIf="genero" class="col-sm-4" appearance="outline">
+              <mat-label>Género</mat-label>
+              <mat-select (selectionChange)="aplicarFiltro($event.value)" required>
+                  <mat-option *ngFor="let genero of generos" [value]="genero.id_genero">
+                      {{genero.viewValue}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="sangre" class="col-sm-4"  appearance="outline">
+              <mat-label>Grupo Sanguíneo</mat-label>
+              <mat-select (selectionChange)="aplicarFiltro($event.value)" required>
+                <mat-option value="O-">O-</mat-option>
+                <mat-option value="O+">O+</mat-option>
+                <mat-option value="A-">A-</mat-option>
+                <mat-option value="A+">A+</mat-option>
+                <mat-option value="B-">B-</mat-option>
+                <mat-option value="B+">B+</mat-option>
+                <mat-option value="AB-">AB-</mat-option>
+                <mat-option value="AB+">AB+</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field *ngIf="ocupacion" class="col-sm-4" appearance="outline">
+                <mat-label>Ocupación</mat-label>
+                <input matInput autocomplete="off" type="text" (keyup)="aplicarFiltro($event.target.value)">
+            </mat-form-field>
+        </div>
+        <div class="tabla">
+          <div class="mt-20 user-contenedor-table">
+            <table mat-table matSort [dataSource]="dataSourceTwo" class="mat-elevation-z8 user-table" #TableTwoSort="matSort" style="width: 100%;">
+      
+              <ng-container matColumnDef="dni">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">DNI</th>
+                <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.dni }}</td>
+              </ng-container>
+      
+              <ng-container matColumnDef="nombre-apellido">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Nombres y Apellidos </th>
+                <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.nombre }} {{ element.apellidoPat }} {{ element.apellidoMat }}</td>
+              </ng-container>
+      
+              <ng-container matColumnDef="genero">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Genero</th>
+                <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.genero }}</td>
+              </ng-container>
+      
+              <ng-container matColumnDef="grupoSanguineo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Grupo Sanguéneo</th>
+                <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.grupoSanguineo }}</td>
+              </ng-container>
+      
+              <ng-container matColumnDef="ocupacion">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header style="padding-left: 5px;">Ocupación</th>
+                <td mat-cell *matCellDef="let element" style="padding-left: 5px;text-align: justify;">{{ element.ocupacion }}</td>
+              </ng-container>
+      
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsTwo"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsTwo" (click)="seleccionarFilaPaciente(row)" [style.background]="pacienteSeleccionado == row ? 'lightblue' : ''"></tr>
+            </table>
+          </div>
+        </div>
+        <mat-paginator #TableTwoPaginator="matPaginator" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        <div class="row pt-2">
+            <div class="col-12 text-right" style="padding-bottom: 15px;">
+                <button mat-raised-button (click)="verEncuesta()"  style="background-color: #70412B;color: white;margin-left: 5px;">Ver Encuesta</button>
+                <button mat-raised-button (click)="encuestaUsuarioEspecifico()"  [disabled]="pacienteSeleccionado == null" color="accent" style="margin-left: 5px;" disabled>Enviar Encuesta por Usuario Específico</button>
+                <button mat-raised-button  *ngIf="sinFiltro" (click)="encuestaMasiva()" style="background-color: #70412B;color: white;margin-left: 5px;">Enviar Encuesta Masiva</button>
+                <button mat-raised-button  *ngIf="filtro" (click)="encuestaMasivaFiltro()" style="background-color: #70412B;color: white;margin-left: 5px;">Enviar Encuesta Masiva por Filtro</button>          
+            </div>
+        </div>
+    </div>
+</div>
+

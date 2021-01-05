@@ -1,0 +1,147 @@
+.mat-form-field{
+    font-size: 14px;
+}
+
+
+.mat-dialog-content {
+    padding-right: 12px;
+    padding-left: 10px;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #70412B;
+}
+
+.slideOutLeft{
+    -webkit-animation-name: flash;
+    animation-name: flash;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .registroLogin{
+
+        .continuar{
+            margin-top: 5px !important;
+        }
+
+        p{
+            margin-left: 24px;
+        }
+        .mat-form-field{
+            margin-left: 24px;
+        }
+
+        .redesSociales{
+            padding-left: 32px;
+            margin-top: -10px !important;
+        }
+
+        .registrar{
+            margin-top: 0px !important;
+        }
+
+        .loginbox{
+            padding-left: 25px;
+        }
+
+    }
+}
+
+
+@media only screen and (max-width: 765px) {
+    .imageLogin{
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    .imageLogin{
+        display: none;
+    }
+
+    .registroLogin{
+
+        .ingresar{
+            margin-top: 0px !important;
+        }
+
+        .continuar{
+            margin-top: 5px !important;
+        }
+
+        p{
+            margin-left: 24px;
+        }
+        .mat-form-field{
+            margin-left: 24px;
+        }
+
+        .redesSociales{
+            padding-left: 32px;
+            margin-top: -10px !important;
+        }
+
+        .registrar{
+            margin-top: 0px !important;
+        }
+
+        .olvpass{
+            padding-top: 2px !important;
+        }
+
+        .login{
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+        }
+
+    }
+}
+
+
+@media only screen and (max-width: 360px) {
+
+    .imageLogin{
+        display: none;
+    }
+
+    .registroLogin{
+
+        .ingresar{
+            margin-top: 0px !important;
+        }
+
+        .continuar{
+            margin-top: 5px !important;
+        }
+
+        p{
+            margin-left: 24px;
+        }
+        .mat-form-field{
+            margin-left: 24px;
+        }
+
+        .redesSociales{
+            padding-left: 32px;
+            margin-top: -10px !important;
+        }
+
+        .registrar{
+            margin-top: 0px !important;
+        }
+
+        .login{
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+        }
+
+        .olvpass{
+            padding-top: 2px !important;
+        }
+    }
+}

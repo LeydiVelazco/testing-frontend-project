@@ -1,0 +1,41 @@
+<div class="container animated fadeIn" style="overflow: hidden;">
+    <div class="col-md-4" style="justify-content: center;margin: auto;padding-top: 200px;">
+        <img class="logo1" src="assets/logo/adrenalinLogo2.png" alt="" style="max-width: 100%;">
+        <p style="font-weight: lighter;font-size: 24px;text-align: center;margin-bottom: 50px;">La Salud es primero</p>
+        <div style="background-color: rgba(243, 243, 243, 0.671);border-radius: 10px;border: 1px solid;">
+            
+            <form style="padding: 20px;">   
+                <p class="animated fadeIn" style="font-size: 25px;text-align: center;color: black;"><strong>Bienvenido a SSP</strong></p>          
+                <div class="form-row" style="justify-content: center">
+                    <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Correo</mat-label>
+                        <input matInput [(ngModel)]="user.email" [formControl]="emailFormControl" autocomplete="off" type="text" required>
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Por favor ingresa una <strong>dirección de correo válida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" style="justify-content: center">
+                    <mat-form-field class="col-md-12" appearance="outline" style="width: 100%" autocomplete="off">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [(ngModel)]="user.password" [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'" autocomplete="off" required>
+                        <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>             
+                <div class="form-row" style="margin-bottom: 4px;margin-top: 10px;">
+                    <div class="col-md-12 animated fadeIn" style="text-align: center;">
+                        <button class="iniciar" mat-raised-button (click)="login()" style="background-color: #70412B;color: white;margin-right: 5px;">Iniciar Sesión</button>
+                    </div>
+                </div>
+            </form>
+        </div>       
+    </div>
+</div>
+

@@ -1,0 +1,240 @@
+<div  style="margin-top: 10px;">
+    <h1 style="text-align: center;">FORMULARIO ADRENALIN SALUD</h1> 
+</div>
+<div class="container animated fadeIn" *ngIf="formulario" style="margin-top: 50px;">
+    <h3>Encuesta de Atencion del Servicio Médico</h3>
+    <p>Califique del 1 al 5, donde 1 es muy malo y 5 es muy bueno el servicio brindado por el personal médico</p>
+    <mat-card class="example-card" style="margin: auto;margin-bottom: 10px">
+        <div class="text-center">
+            <p>1.- ¿Cómo calificaría el servicio general recibido por el personal médico?</p>
+        </div>
+        <div class="form-row" style="margin: auto;justify-content: center;">
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/01.svg" class="emoji"> 
+                <p style="margin-left: 20px;margin-bottom: -10px;" >1</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">2</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">3</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">4</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">5</p>
+            </div>
+        
+            <!-- <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji"> -->
+        </div>
+        <div class="form-row" *ngIf="buttonEnviar" style="justify-content: center;">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="encuesta.puntajePregunta1" style="margin-left: 5px;">
+                <mat-radio-button value="1" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="2" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="3" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="4" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="5" class="emoji2"></mat-radio-button>
+            </mat-radio-group>
+        </div>         
+    </mat-card>
+    <mat-card class="example-card" style="margin: auto;margin-bottom: 10px">
+        <div class="text-center">
+            <p>2.- ¿Cómo calificaría el trato brindado en la consulta por el personal médico?</p>
+        </div>
+        <div class="form-row" style="margin: auto;justify-content: center;">
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/01.svg" class="emoji"> 
+                <p style="margin-left: 20px;margin-bottom: -10px;" >1</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">2</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">3</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">4</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">5</p>
+            </div>
+        
+            <!-- <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji"> -->
+        </div>
+        <div class="form-row" *ngIf="buttonEnviar" style="justify-content: center;">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="encuesta.puntajePregunta2" style="margin-left: 5px;">
+                <mat-radio-button value="1" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="2" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="3" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="4" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="5" class="emoji2"></mat-radio-button>
+            </mat-radio-group>
+        </div>         
+    </mat-card>
+    <mat-card class="example-card" style="margin: auto;margin-bottom: 10px">
+        <div class="text-center">
+            <p>3.- ¿Cómo calificaría las indicaciones dadas por el personal médico?</p>
+        </div>
+        <div class="form-row" style="margin: auto;justify-content: center;">
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/01.svg" class="emoji"> 
+                <p style="margin-left: 20px;margin-bottom: -10px;" >1</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">2</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">3</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">4</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">5</p>
+            </div>
+        
+            <!-- <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji"> -->
+        </div>
+        <div class="form-row" *ngIf="buttonEnviar" style="justify-content: center;">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="encuesta.puntajePregunta3" style="margin-left: 5px;">
+                <mat-radio-button value="1" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="2" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="3" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="4" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="5" class="emoji2"></mat-radio-button>
+            </mat-radio-group>
+        </div>         
+    </mat-card>
+    <mat-card class="example-card" style="margin: auto;margin-bottom: 10px">
+        <div class="text-center">
+            <p>4.- ¿Cómo calificaría el diagnóstico brindado por el personal médico?</p>
+        </div>
+        <div class="form-row" style="margin: auto;justify-content: center;">
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/01.svg" class="emoji"> 
+                <p style="margin-left: 20px;margin-bottom: -10px;" >1</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">2</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">3</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">4</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">5</p>
+            </div>
+        
+            <!-- <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji"> -->
+        </div>
+        <div class="form-row" *ngIf="buttonEnviar" style="justify-content: center;">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="encuesta.puntajePregunta4" style="margin-left: 5px;">
+                <mat-radio-button value="1" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="2" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="3" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="4" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="5" class="emoji2"></mat-radio-button>
+            </mat-radio-group>
+        </div>         
+    </mat-card>
+    <mat-card class="example-card" style="margin: auto;margin-bottom: 10px">
+        <div class="text-center">
+            <p>5.- ¿Cómo calificaría hasta el momento el tratamiento brindado por el personal médico?</p>
+        </div>
+        <div class="form-row" style="margin: auto;justify-content: center;">
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/01.svg" class="emoji"> 
+                <p style="margin-left: 20px;margin-bottom: -10px;" >1</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">2</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">3</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">4</p>
+            </div>
+            <div>
+                <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji">
+                <p style="margin-left: 20px;margin-bottom: -10px;">5</p>
+            </div>
+        
+            <!-- <img src="https://demos.drubbit.com/umuntu-cx/dist/img/02.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/03.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/04.svg" class="emoji">
+            <img src="https://demos.drubbit.com/umuntu-cx/dist/img/05.svg" class="emoji"> -->
+        </div>
+        <div class="form-row" *ngIf="buttonEnviar" style="justify-content: center;">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="encuesta.puntajePregunta5" style="margin-left: 5px;">
+                <mat-radio-button value="1" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="2" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="3" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="4" class="emoji2"></mat-radio-button>
+                <mat-radio-button value="5" class="emoji2"></mat-radio-button>
+            </mat-radio-group>
+        </div>         
+    </mat-card>
+    
+    <mat-card class="example-card" style="margin-bottom: 10px">
+        <div class="form-row"> 
+            <mat-form-field class="col-sm-12" appearance="outline">
+                <mat-label>Observaciones (opcional)</mat-label>
+                <textarea matInput autocomplete="off" [(ngModel)]="encuesta.observacion" type="text" style="height: 70px;"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="form-row" *ngIf="buttonEnviar">       
+            <div class="col-12 text-right">
+                <button mat-raised-button   (click)="enviarRespuestas()" style="background-color: #70412B;color: white;margin-left: 5px;">Enviar Respuestas</button>
+            </div>            
+        </div>
+        <div class="form-row" *ngIf="buttonRegresar">       
+            <div class="col-12 text-right">
+                <button mat-raised-button   (click)="regresar()" style="background-color: #70412B;color: white;margin-left: 5px;">Regresar</button>
+            </div>            
+        </div>
+    </mat-card> 
+</div>
+<div class="container animated fadeIn" *ngIf="gracias" style="margin-top: 50px;">
+    <h4 style="text-align: center;">Gracias por tus respuestas!</h4>
+    <p style="text-align: center;">Tu valoracion ha sido enviada al sistema.</p>
+    <div class="form-row" *ngIf="buttonRegresar">       
+        <div class="col-12 text-center">
+            <a href="javascript:if(confirm('Close window?'))window.close()">close</a>
+        </div>            
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<div class="container animated fadeIn" style="margin-top: 150px;">
+    <div class="container">
+        <div>
+            <h1>Registro de Paciente</h1>
+        </div>
+        <!-- Form para guardar los datos del paciente y se captura con [(ngModel)] -->
+        <div class="form-row">
+            <div class="col-sm-7" style="background-color: rgba(255, 255, 255, 0.671);border-radius: 10px;border: 1px solid;">
+                <form style="padding: 20px;">
+                    <div class="form-row" >
+                      <mat-form-field class="col-md-6"  appearance="outline">
+                        <mat-label>Plan</mat-label>
+                        <mat-select [(ngModel)]="paciente.idPlan" [formControl]="idPlanFormControl">
+                            <mat-option *ngFor="let plan of planes" [value]="plan.idPlan">
+                            {{plan.nombrePlan}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="idPlanFormControl.hasError('required')">
+                          Este campo es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-row" >
+                        <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                            <mat-label>Nombre</mat-label>
+                            <input matInput [formControl]="nombreFormControl" [(ngModel)]="paciente.nombre" autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressLetters($event)" required>
+                            <mat-error *ngIf="nombreFormControl.hasError('required')">
+                              Este campo es <strong>requerido</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                            <mat-label>Apellido Paterno</mat-label>
+                            <input matInput [formControl]="apellidoPatFormControl" [(ngModel)]="paciente.apellidoPat" autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressLetters($event)" required>
+                            <mat-error *ngIf="apellidoPatFormControl.hasError('required')">
+                              Este campo es <strong>requerido</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                            <mat-label>Apellido Materno</mat-label>
+                            <input matInput [formControl]="apellidoMatFormControl" [(ngModel)]="paciente.apellidoMat" autocomplete="off" type="text" style="color: black !important;"(keypress)="keypressLetters($event)"  required>
+                            <mat-error *ngIf="apellidoMatFormControl.hasError('required')">
+                              Este campo es <strong>requerido</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-row" >
+                        <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                            <mat-label>Número de Documento de Identidad</mat-label>
+                            <input matInput [formControl]="dniFormControl" [(ngModel)]="paciente.dni" autocomplete="off" type="text" style="color: black !important;" minlength="8" maxlength="8" (keypress)="keypressNumbers($event)" required>
+                            <mat-error *ngIf="dniFormControl.hasError('required')">
+                              Este campo es <strong>requerido</strong>
+                            </mat-error>
+                            <mat-error *ngIf="dniFormControl.hasError('minlength')">
+                              Este campo es de <strong>8 dígitos</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                          <mat-label>Fecha de Nacimiento</mat-label>
+                          <input matInput [formControl]="nacimientoFormControl" [(ngModel)]="nacimiento" max="2999-12-31" autocomplete="off" type="date" style="color: black !important;" required>
+                          <mat-error *ngIf="nacimientoFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                          </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-row" >
+                        <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                            <mat-label>Dirección</mat-label>
+                            <input matInput [formControl]="direccionFormControl" [(ngModel)]="paciente.direccion" autocomplete="off" type="text" style="color: black !important;" required>
+                            <mat-error *ngIf="direccionFormControl.hasError('required')">
+                              Este campo es <strong>requerido</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                          <mat-label>Ocupación</mat-label>
+                          <input matInput [formControl]="ocupacionFormControl" [(ngModel)]="paciente.ocupacion" autocomplete="off" type="text" style="color: black !important;" (keypress)="keypressLetters($event)" required>
+                          <mat-error *ngIf="ocupacionFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                          </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-row" >
+                      <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                          <mat-label>Celular</mat-label>
+                          <input matInput [formControl]="celularFormControl" [(ngModel)]="paciente.celular" autocomplete="off" type="tel" style="color: black !important;" minlength="9" maxlength="9" (keypress)="keypressNumbers($event)" required>
+                          <mat-error *ngIf="celularFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                          </mat-error>
+                          <mat-error *ngIf="celularFormControl.hasError('minlength')">
+                            Este campo es de <strong>9 dígitos</strong>
+                          </mat-error>
+                      </mat-form-field>
+                      <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                          <mat-label>Email</mat-label>
+                          <input matInput type="email" [formControl]="emailFormControl" [(ngModel)]="paciente.email" autocomplete="off" style="color: black !important;" required>
+                          <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                          </mat-error>
+                          <mat-error *ngIf="emailFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
+                            Porfavor ingresa un <strong>email válido</strong>
+                          </mat-error>
+                      </mat-form-field>
+                  </div>
+                    <div class ="form-row">
+                      <mat-form-field class="col-md-4"  appearance="outline">
+                        <mat-label>Grupo Sanguíneo</mat-label>
+                        <mat-select [formControl]="grupoSangFormControl" [(ngModel)]="paciente.grupoSanguineo" required>
+                          <mat-option value="O-">O-</mat-option>
+                          <mat-option value="O+">O+</mat-option>
+                          <mat-option value="A-">A-</mat-option>
+                          <mat-option value="A+">A+</mat-option>
+                          <mat-option value="B-">B-</mat-option>
+                          <mat-option value="B+">B+</mat-option>
+                          <mat-option value="AB-">AB-</mat-option>
+                          <mat-option value="AB+">AB+</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="grupoSangFormControl.hasError('required')">
+                          Este campo es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field class="col-md-4"  appearance="outline">
+                        <mat-label>Género</mat-label>
+                        <mat-select [formControl]="generoFormControl" [(ngModel)]="paciente.genero" required>
+                          <mat-option value="M">Masculino</mat-option>
+                          <mat-option value="F">Femenino</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="generoFormControl.hasError('required')">
+                          Este campo es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field class="col-md-4"  appearance="outline">
+                        <mat-label>Estado Civil</mat-label>
+                        <mat-select [formControl]="estCivFormControl" [(ngModel)]="paciente.estadoCivil" required>
+                          <mat-option value="S">Soltero</mat-option>
+                          <mat-option value="C">Casado</mat-option>
+                          <mat-option value="V">Viudo</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="estCivFormControl.hasError('required')">
+                          Este campo es <strong>requerido</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <!-- Div de botones para regresar o guardar los datos de los campos -->
+                    <div class="form-row pt-2">
+                        <div class="col-sm-12 text-right">
+                            <button mat-raised-button color="accent" style="margin-right: 15px;" (click)="regresar()">Regresar</button>
+                            <button *ngIf="guardarButton" mat-raised-button type="button" style="background-color: #70412B;color: white;margin-bottom: 15px;" (click)="guardarPaciente()">Guardar</button>
+                            <button *ngIf="actualizarButton" mat-raised-button style="background-color: #70412B;color: white;margin-left: 5px;margin-bottom: 15px;" (click)="actualizarPaciente()">Actualizar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-5">
+                <img src="assets/logo/paciente.png" style="max-width: 100%;padding: 20px;">
+            </div>
+        </div>
+        
+    </div>
+</div>
+

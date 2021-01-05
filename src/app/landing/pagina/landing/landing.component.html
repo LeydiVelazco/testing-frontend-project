@@ -1,0 +1,351 @@
+<div class="hero">
+    <div class="text_banner">
+        <h1 style="font-weight: 700;">Seguimiento de Pacientes, <br> Atencion Online <br> y mucho más.</h1>
+        <p style="margin-bottom: 18px;font-weight: 400;">Sé capaz de manejar la información de tu Empresa<br> Y poder gestionar Atenciones médicas. 100% Online</p>
+        <div class="emailWeb">
+            <input type="text" [(ngModel)]="correo" style="height: 40px;" placeholder="Email">
+            <button mat-flat-button (click)="comprobarCorreo()" style="background-color: #70412B;color: white;padding: 0.8px 50px 3px 50px;
+            font-weight: 500;border-radius: 0 2px 2px 0;font-weight: 500;font-size: 20px;">INGRESAR</button>
+        </div>
+        <p style="margin-top: 10px;font-weight: 400;">Ingresa tu email para solicitar el servicio o acceder a una existente</p> 
+    </div>
+    <video class="video-bg" autoplay [muted]="'muted'" loop>
+        <source src="http://content.itlandapps.com/adrenalin/atencion5.mp4" type="video/mp4">
+    </video>
+</div>
+<nav class="navbar fixed-top gris navbar-expand-lg navbar-dark blue scrolling-navbar">
+    <div class="container">
+        <img src="assets/logo/adrenalinLogo2.png" alt="" style="max-width: 20%;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto items">
+                <li class="nav-item">
+                    <a class="nav-link" href="#carrusel">Comentarios </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#caracteristicas">Características</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact_us">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#funcionalidades">Funcionalidades</a>
+                </li>           
+                <li class="nav-item">
+                    <a class="nav-link" href="#planes">Planes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="login()">INGRESAR</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="carrusel" class="pt-5">
+    <div class="container">
+        <p style="font-size: 30px;font-weight: lighter;">Observa nuestros <span style="font-weight: 500;">MEJORES COMENTARIOS</span></p>
+        <div class="form-row">
+            <div class="col-sm-7">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div>
+                                <mat-card class="example-card">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="example-header-image1"></div>
+                                        <mat-card-title>Marcos Giorgio Gamero Diaz</mat-card-title>
+                                        <mat-card-subtitle>Gerente de "Fundación Tinkuy"</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <p style="font-weight: lighter;font-size: 16px;">
+                                            A raíz de los problemas propios de esta pandemia, había que ver como mantener la seguridad y conocer la salud de mis empleados.
+                                            Sin más que decir, lo logré.
+                                        </p>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <mat-card class="example-card">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="example-header-image2"></div>
+                                        <mat-card-title>Patty Coronado Córdoba</mat-card-title>
+                                        <mat-card-subtitle>Gerente de "ITLand"</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <p style="font-weight: lighter;font-size: 16px;">
+                                            Pues la plataforma me cayó como anillo al dedo, creo que en estos tiempos, todas las empresas deberían considerarla una opción
+                                            Es una necesidad !
+                                        </p>
+                                    </mat-card-content>
+                                  </mat-card>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <mat-card class="example-card">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="example-header-image3"></div>
+                                        <mat-card-title>Mauricio Torres Alva</mat-card-title>
+                                        <mat-card-subtitle>Gerente de "Latina Producciones"</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <p style="font-weight: lighter;font-size: 16px;">
+                                            Al principio tenía mis dudas, pues es algo que no habíamos probado antes. Después de usarlo por 3 meses, estoy superconvencido que fue buena idea hacer uso de la plataforma.
+                                            Suerte Adrenalin !
+                                        </p>
+                                    </mat-card-content>
+                                  </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-row" style="justify-content: space-around;">
+                    <img src="assets/logo/tinkuy.png" style="max-width: 110px;">
+                    <img src="assets/logo/latina.png" style="max-width: 110px;max-height: 123px;">
+                    <!-- <img src="assets/logo/solmit.png" style="max-width: 190px;max-height: 80px;margin-top:35px ;"> -->
+
+                </div>
+                <div class="form-row" style="justify-content: space-around;">
+                    <!-- <img src="assets/logo/cpp.png" style="max-width: 150px;max-height: 120px;margin-top:35px;"> -->
+                    <img src="assets/logo/solmit.png" style="max-width: 130px;max-height: 60px;margin-top:35px ;">
+                    <img src="assets/logo/itland.png" style="max-width: 100px;max-height: 120px;margin-top:20px;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section id="caracteristicas" class="pt-5">
+    <div class="container">
+        <div class="form-row">
+            <div class="col-sm-4" style="text-align: center;">
+                <h1>INTUITIVO</h1>
+                <p style="font-size: 18px;">De fácil uso, los usuarios serán capaces de usar el software con poca instrucción.
+                   ¡Software especializado con poca necesidad de especialización!</p>
+            </div>
+            <div class="col-sm-4" style="text-align: center;">
+                <h1>NECESARIO</h1>
+                <p style="font-size: 18px;">Para asegurar el bienestar de los empleados, en estos días no es un lujo.
+                    Nosotros le llamamos... ¡Necesidad!</p>
+            </div>
+            <div class="col-sm-4" style="text-align: center;">
+                <h1>EVOLUTIVO</h1>
+                <p style="font-size: 18px;">Somos una empresa que cree en el crecimiento de mano con los clientes. Tenemos grandes planes, que con apoyo de nuestros clientes y del sistema podremos realizarlos.
+                  ¡Vamos a dar este paso juntos!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact_us" class="pt-5">
+    <div class="container">
+        <div class="form-row">
+            <div class="col-sm-7">
+                <img src="http://content.itlandapps.com/adrenalin/contactus.JPG" style="max-width: 90%;">
+            </div>
+            <div class="col-sm-5">
+                <h1>CONTÁCTANOS</h1>
+                <h4>DÉJANOS TU CORREO</h4>
+                <p>Para poder contactarnos contigo y que tengas una mejor información de nuestro sistema escribe debajo tu correo y un mensaje.</p>
+                <form>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Correo Eléctronico</mat-label>
+                        <input matInput [(ngModel)]="correoClient" [formControl]="emailFormControl" autocomplete="off" type="text">
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Por favor ingresa una <strong>dirección de correo válida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                        <mat-label>Mensaje</mat-label>
+                        <textarea matInput [(ngModel)]="mensaje" [formControl]="mensajeFormControl" style="height: 100px;"></textarea>
+                        <mat-error *ngIf="mensajeFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button (click)="contactanos()" style="background-color: #70412B;color: white;">Enviar solicitud</button>
+                </form>    
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section id="seccionFondo" style="margin-top: 40px;">
+    <div class="container pt-5">
+        <div class="form-row">
+            <div class="col-sm-5 offset-7">
+                <h1>Probar <span>NO CUESTA</span></h1>
+                <p>Si no estas seguro de poder contratar nuestro servicio, puedes solicitar una demo para que puedas
+                    evaluar como funciona nuestra plataforma en base a tus exigencias.
+                </p>
+                <div class="form-row" style="cursor: pointer;">
+                    <div class="imagen" style="background-color: black;">
+                        <img src="https://cdn.pixabay.com/photo/2016/10/03/15/42/button-1711966_960_720.png">
+                    </div>
+                    <div class="prueba" style="background-color: white;">
+                        <p style="margin-bottom: -18px;">Solicitar una</p>
+                        <p>Demo</p>
+                    </div>
+                </div>
+            </div>
+       </div>
+   </div>
+</section> -->
+<section id="funcionalidades" class="pt-5">
+    <div class="container">
+        <div class="form-row">
+            <div class="col-sm-6">
+                <div class="titulo">
+                    <h1>FUNCIONALIDADES</h1>
+                    <p style="font-weight: lighter;font-size: 18px;" class="pt-3">Digamos que decides contratar el servicio. ¿De qué serías capaz?</p>
+                </div>
+                <div class="itemsFuncionalides pt-3">
+                    <div class="form-row">
+                        <div class="col-sm-1" style="margin-right: 20px;margin-top: 20px;">
+                            <button mat-fab style="background-color: #70412B">
+                                <mat-icon>account_balance</mat-icon>
+                            </button>
+                        </div>
+                        <div class="col-sm-10" style="margin-top: 10px;">
+                            <p style="font-weight: 500;margin-bottom: -4px;">Generar y documentar atención</p>
+                            <p style="font-weight: lighter;font-size: 16px;">¿Cómo se realiza el seguimiento? Pues gracias a que manejamos las atenciones, serás capaz de permitirle a los médicos, conocer el estado de los empleados.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-sm-1" style="margin-right: 20px;margin-top: 20px;">
+                            <button mat-fab style="background-color: #70412B">
+                                <mat-icon>assignment</mat-icon>
+                            </button>
+                        </div>
+                        <div class="col-sm-10" style="margin-top: 10px;">
+                            <p style="font-weight: 500;margin-bottom: -4px;">Maneja encuestas</p>
+                            <p style="font-weight: lighter;font-size: 16px;">Conoce el sentir de tus empleados respecto a la atención, información de cómo están siendo atendidos para mejorar la atención e incluso asi mejoramos nosotros.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-sm-1" style="margin-right: 20px;margin-top: 20px;">
+                            <button mat-fab style="background-color: #70412B">
+                                <mat-icon>favorite</mat-icon>
+                            </button>
+                        </div>
+                        <div class="col-sm-10" style="margin-top: 10px;">
+                            <p style="font-weight: 500;margin-bottom: -4px;">Maneja planes</p>
+                            <p style="font-weight: lighter;font-size: 16px;">Realiza el seguimiento de tus empleados gracias a las recomendaciones que manejamos en los planes personzalidos y siéntete seguro.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img src="assets/logo/doctor.png" style="max-width: 150%;">
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- <section id="planes" class="pt-5">
+    <div class="container">
+        <div style="text-align: center;">
+            <h1><span style="font-weight: lighter;">3 Opciones!</span> NUESTROS PLANES</h1>
+            <p>Revisa uno de nuestros 3 planes</p>
+        </div>
+        <div class="form-row pt-4 plan">
+            <div class="col-sm-4" style="margin-bottom: 30px;">
+                <h3>Plan Gratuito</h3>
+                <p style="margin-left: 20px;">Que ofrecemos:</p>
+                <ul>
+                    <li>Nemo enim ipsam</li>
+                    <li>Sit aspernatur aut odit</li>
+                    <li>Ratione voluptatem</li>
+                    <li>Consequuntur magni</li>
+                </ul>
+                <h1 style="text-align: center;font-size: 60px;"  class="pt-4">S/ 0.00 </h1>
+                <p style="text-align: center;" >Por 2 meses</p>
+                <div style="text-align: center;">
+                    <button mat-raised-button color="primary" style="width: 70%;">Elegir Plan</button>
+                </div>
+            </div>
+            <div class="col-sm-4" style="margin-bottom: 30px;">
+                <h3>Plan Profesional </h3>
+                <p style="margin-left: 20px;">Que ofrecemos:</p>
+                <ul>
+                    <li>Nemo enim ipsam</li>
+                    <li>Sit aspernatur aut odit</li>
+                    <li>Ratione voluptatem</li>
+                    <li>Consequuntur magni</li>
+                </ul>
+                <h1 style="text-align: center;font-size: 60px;"  class="pt-4">S/ 30.00 </h1>
+                <p style="text-align: center;" >Mensual</p>
+                <div style="text-align: center;">
+                    <button mat-raised-button color="primary" style="width: 70%;">Elegir Plan</button>
+                </div>
+            </div>
+            <div class="col-sm-4" style="margin-bottom: 30px;">
+                <h3>Plan Premium</h3>
+                <p style="margin-left: 20px;">Que ofrecemos:</p>
+                <ul>
+                    <li>Nemo enim ipsam</li>
+                    <li>Sit aspernatur aut odit</li>
+                    <li>Ratione voluptatem</li>
+                    <li>Consequuntur magni</li>
+                </ul>
+                <h1 style="text-align: center;font-size: 60px;" class="pt-4">S/ 50.00 </h1>
+                <p style="text-align: center;">Mensual</p>
+                <div style="text-align: center;">
+                    <button mat-raised-button color="primary" style="width: 70%;">Elegir Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section id="nosotros">
+    <div class="container pt-5">
+        <h4 style="margin-bottom: 30px;text-align: center;">PREGUNTAS FRECUENTES</h4>
+        <div class="form-row col-sm-8" style="justify-content: center;margin: auto;">
+            <mat-accordion >
+                <mat-expansion-panel style="margin-bottom: 12px;border-radius: 4px;" >
+                <mat-expansion-panel-header  class="specific-class">
+                    <mat-panel-title style="color: white;font-weight: lighter;">
+                        ¿Puedo crear planes personalizados?
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>De momento no contamos con esa opción, sin embargo es una opción que estamos pensando a futuro.</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel style="margin-bottom: 12px;border-radius: 4px;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header  class="specific-class">
+                        <mat-panel-title style="color: white;font-weight: lighter;">
+                            Manejo las listas de mis empleados en un excel. ¿Habría alguna forma de importarla?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                <p>En efecto, el sistema tiene la capacidad de importar un excel siempre que siga el formato adecuado para realizar la importación.</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel style="margin-bottom: 12px;border-radius: 4px;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header  class="specific-class">
+                        <mat-panel-title style="color: white;font-weight: lighter;">
+                            Ya envié un correo para solicitar contacto. ¿Y ahora?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                <p>Parte del proceso para adquirir los servicios de la plataforma es contar con una entrevista personal, nosotros le agendaremos una reuinón como respuesta a la solicitud que envió al correo que especificó.</p>
+                </mat-expansion-panel>
+                <!-- <mat-expansion-panel style="margin-bottom: 50px;border-radius: 4px;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header  class="specific-class">
+                        <mat-panel-title style="color: white;font-weight: lighter;">
+                            He decidido cancelar la suscripción ¿Y ahora?
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>No te preocupes, aunque ya no puedas hacer uso de la plataforma, mantendremos los datos de la empresa intactos, hasta que decidas volver(1 año máximo)</p>
+                </mat-expansion-panel> -->
+            </mat-accordion>
+        </div>
+    </div>
+</section>

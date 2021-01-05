@@ -1,0 +1,61 @@
+<div class="container animated fadeIn" style="margin-top: 150px;">
+    <div class="form-row ">
+        <h1>Crear Nuevo Plan</h1>
+    </div>
+    <div class="form-row">
+        <div class="col-sm-7" style="background-color: rgba(255, 255, 255, 0.671);border-radius: 10px;border: 1px solid;">
+            <form style="padding: 20px;">
+                <div class="form-row" >
+                    <mat-form-field class="col-md-12" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Nombre de Enfermedad</mat-label>
+                        <input matInput autocomplete="off" [formControl]="enfermedadFormControl" [(ngModel)]="plan.nombrePlan" name="txtenfermedad" type="text" required>
+                        <mat-error *ngIf="enfermedadFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row" >
+                    <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off" >
+                        <mat-label>Intervalo de Citas (días)</mat-label>
+                        <input matInput autocomplete="off" maxlength="2" [formControl]="intervaloFormControl" [(ngModel)]="plan.intervaloConsulta" (keypress)="keypressNumbers($event)" type="text" required>
+                        <mat-error *ngIf="intervaloFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                        <mat-error *ngIf="intervaloFormControl.hasError('max')">
+                            La cifra máxima es <strong>30</strong>
+                        </mat-error>
+                        <mat-error *ngIf="intervaloFormControl.hasError('min')">
+                            La cifra mínima es <strong>1</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-md-6" appearance="outline" style="width: 100%;" autocomplete="off">
+                        <mat-label>Duración de Plan </mat-label>
+                        <input matInput autocomplete="off"  maxlength="3" [formControl]="duplanFormControl" [(ngModel)]="plan.duracionPlan" (keypress)="keypressNumbers($event)" type="text" required>
+                        <mat-error *ngIf="duplanFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row">
+                    <mat-form-field class="col-md-12" appearance="outline">
+                        <mat-label>Descripción</mat-label>
+                        <textarea matInput style="height: 80px;" [formControl]="descripcionFormControl" [(ngModel)]="plan.descripcion" required></textarea>
+                        <mat-error *ngIf="descripcionFormControl.hasError('required')">
+                            Este campo es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-12 text-right">
+                        <button mat-raised-button (click)="cancelar()" color="accent"  style="margin-left: 5px;">Regresar</button>
+                        <button *ngIf="guardarButton" mat-raised-button  (click)="guardar()" style="margin-left: 5px;background-color: #70412B;color: white;">Guardar</button>
+                        <button *ngIf="actualizarButton" mat-raised-button style="margin-left: 5px;margin-bottom: 15px;background-color: #70412B;color: white;" (click)="actualizarPlan()">Actualizar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-5">
+            <img src="assets/logo/enfermedad.png" style="max-width: 70%;padding: 10px;">
+        </div>
+    </div>
+</div>
